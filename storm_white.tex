@@ -1,0 +1,41 @@
+\documentclass{article}
+
+\usepackage{first_storm}
+\begin{document}
+	
+	\setlength\abovedisplayskip{0.1cm}
+	\setlength\belowdisplayskip{0.1cm}
+	\setlength\abovedisplayshortskip{0.1cm}
+	\setlength\belowdisplayshortskip{0.1cm}
+	
+	\begin{multicols*}{0}
+		% Table of contents, without subsections:
+		\setcounter{tocdepth}{1}
+		\tableofcontents
+		\thispagestyle{firstpage}
+		
+		\smallskip
+		
+		\hrule
+		
+		\vfill\null
+		\columnbreak
+		
+		\input{sections/calculus}
+		
+		\vfill\null
+		\columnbreak
+		\section{Linear Algebra}
+		
+		\vfill\null
+		\columnbreak
+		\section{Optimization}
+		
+		\section{Discrete Math and Probability Distributions}
+		
+		\section{Statistical Estimation}
+		
+		\section{Scientific Computing and Numerical Methods}
+		
+	\end{multicols*}
+\end{document}

@@ -1,0 +1,63 @@
+\ProvidesPackage{first_storm}
+
+\usepackage[utf8]{inputenc}             % Encoding UTF-8
+
+\usepackage{listings}                   % Source code listings
+\usepackage{framed}                     % Source code listings
+\usepackage[a4paper,landscape,hmargin={0.5cm,0.5cm},vmargin={1.0cm,0.5cm},headsep=0.25cm]{geometry}
+\usepackage{multicol}                   % Split page in multiple columns
+\usepackage{fancyhdr}                   % Fancy headers
+\usepackage{amsbsy, amssymb, amsmath}   % Enable math symbols
+\usepackage{tocloft}                    % Custom Table of Contents
+\usepackage{titletoc}                   % Design control over Table of Contents
+\usepackage{ifthen}                     % To enable some conditional programming in LaTeX
+\usepackage{courier}                    % To get bold typewriter typeface
+\usepackage{graphicx}                   % To rotate page numbers
+\usepackage{fix-cm}                     % Large font sizes
+\usepackage{paralist}                   % For compact enumerations
+\usepackage[inline]{enumitem}           % For horizontal lists
+\usepackage[parfill]{parskip}           % For compact enumerations
+\usepackage[dvipsnames]{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage[hidelinks]{hyperref}        % For clickable table of contents
+
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{titlesec}
+\usepackage{mathtools,textcomp}
+
+\pagestyle{fancy}
+\lhead{\textit{DA/ST/CS/EC Statistics and Mathematics Notebook: An OIer's perspective}}
+\rhead{\thepage}
+\cfoot{}
+\fancypagestyle{firstpage}{%
+	\lhead{\textit{DA/ST/CS/EC Statistics and Mathematics Notebook: An OIer's perspective}}
+	\rhead{Version 0.0 Aug 2019}
+	\cfoot{}
+}
+
+\setlength{\columnseprule}{0.5pt}
+\setlength{\columnsep}{20pt} % Multicol separation margin
+
+\lstset{language=C++}
+\lstset{morekeywords={alignas,alignof}}
+\lstset{deletedirectives={line}}
+\lstset{frame=tb}
+\lstset{tabsize=2}
+\lstset{showstringspaces=false}
+\lstset{breaklines=true}
+\lstset{basicstyle=\scriptsize\ttfamily}
+\lstset{commentstyle=\normalfont\itshape}
+\lstset{literate={^}{\caret}{1}}
+\lstset{literate={~}{\tilde}{1}}
+\lstset{emptylines=*1}
+\lstset{inputencoding=utf8}
+\lstset{aboveskip=3pt}
+\lstset{belowskip=2pt}
+
+\def\contentsname{\empty}
+
+\mdfdefinestyle{theorem}{leftline=true, rightline=true, linewidth=0.5pt, innertopmargin=0.2cm, innerbottommargin=0.2cm, skipabove=0.1cm, nobreak=true}
+
+\titlespacing*{\subsubsection}{0pt}{1ex}{1.25ex}

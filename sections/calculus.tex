@@ -1,0 +1,201 @@
+\vfill\null
+\columnbreak
+
+\section{Calculus}
+
+\subsection{Partial Differentiation (MATH2014)}
+		
+\subsubsection*{Prove continuity via polar coordinates}
+
+Q-type: Let $ f(x, y) = \begin{cases}
+? & \text{if }(x, y) \neq (0, 0) \\
+const. & \text{if }(x, y) = (0, 0)
+\end{cases}\, $ . Is $f$ continuous?
+
+\begin{mdframed}[style=theorem]
+	To prove a function is \textbf{continuous}, a strategy is:
+	\begin{enumerate}
+		\item Change to polar: $\begin{cases}x = r \cdot cos \theta \\ y = r \cdot sin \theta \end{cases}$
+		\item Prove $sin\theta$ and $cos\theta$ is \underline{bounded}, e.g. via sandwich thm.
+		\begin{itemize}
+			\item $\displaystyle\lim_{r \to 0} |f(\theta)| \leq |c|$
+		\end{itemize}
+	\end{enumerate}
+\end{mdframed}
+
+\begin{mdframed}[style=theorem]
+	To prove a function is \textbf{discontinuous}, some strategies are:
+	\begin{enumerate}[label=(\Alph*)]
+	\item Change to polar, set $\displaystyle\lim_{r \to 0}$, then choose two $\theta$ where value of $f(x, y)$ is different under limit.
+	\item Fix $x = 0$ or $y = 0$, then set $\displaystyle\lim_{(x, y) \to (0, 0)}$ "along the half line of $y = 0, x > 0$ (or some other half-axis)", and compare this with true value of $f(0, 0)$ without limit.
+	\end{enumerate}
+\end{mdframed}
+
+\subsubsection*{Partial derivatives}
+
+To partial d. on $x$, perform d. as normal on $x$ while treating others ($y, z$) as constants.
+
+\begin{mdframed}[style=theorem]
+	Notation: $f_x = \frac{\partial f}{\partial x}$
+	
+	Mixed partial derivatives: $f_xy = (f_x)_y = \frac{\partial^2 f}{\partial y \partial x}$ \textbf{(order of fraction is inverted!)}
+	
+	If $f_{xy}$ is continuous in a neighbourhood of a point, then $f_{yx} = f_{xy}$.
+\end{mdframed}
+
+\subsubsection*{Chain rule}
+
+\begin{mdframed}[style=theorem]
+	\[\frac{\partial z}{\partial ?} = \underbrace{\frac{\partial z}{\partial u}\frac{\partial u}{\partial ?} + \frac{\partial z}{\partial v}\frac{\partial v}{\partial ?}}_{\text{For each input} (u, v), \text{one by one}}\]
+	
+	Recommend: Calculate each $\frac{\partial z}{\partial u}$ individually, then combine and sub.
+	
+	Special: $(a^x) \textnormal{\textquotesingle} = a^x - ln(a)$
+\end{mdframed}
+
+\vfill\null
+\columnbreak
+
+\subsubsection*{Total differential}
+Linear approximation for $\Delta w$ when $(x, y)$ changes from $(x_0, y_0)$ to $(x_0 + \Delta x, y_0 + \Delta y)$
+]
+
+\begin{itemize}
+	\item Useful for approximating functions where the input value deviates little from another value where computation is easier (e.g. 3.95 vs 4).
+\end{itemize}
+
+\begin{mdframed}[style=theorem]
+	\[\Delta w \approx dw = w_x(x_0, y_0) \Delta x + w_y(x_0, y_0) \Delta y\]
+	
+	Q-type: Given maximum relative errors of each input value, find the maximum relative error of the function output value:
+	
+	A: Still write the above equation, but divide whole equation by $w$, then rearrange to plug in inequalities. i.e. $\frac{\Delta w}{w} \approx  \frac{w_x \Delta x}{w} + \frac{w_y \Delta y}{w}$
+	
+\end{mdframed}
+
+\subsubsection*{Taylor's formula (Second order)}
+Quadratic approximation
+\begin{mdframed}[style=theorem]
+	\begin{multline*}
+		f(x, y) \approx f(x_0, y_0) + \left[\Delta x f_x(x_0, y_0) + \Delta y f_y(x_0, y_0)\right] + \\ \frac{1}{2!} \left[\left[\Delta x\right]^2 f_{xx}(x_0, y_0) + 2\Delta x\Delta y f_{xy}(x_0, y_0) + \left[\Delta y\right]^2 f_{yy}(x_0, y_0)\right]
+	\end{multline*}
+	
+	\smallskip
+	Recommend: Calculate partials separately first!
+\end{mdframed}
+
+\subsubsection*{Newton-Raphson Method (finding solutions via iterations)}
+
+\begin{mdframed}[style=theorem]
+	\begin{enumerate}[label=(\Alph*)]
+		\item Root estimation: Start from some $x_0$, then $x_{n + 1} = x_n - \frac{f(x_n)}{f\textnormal{\textquotesingle}(x_n)}$
+		\item Simul. eqt: $ \begin{cases}
+		f(x, y) &= ... = 0 \\
+		g(x, y) &= ... = 0
+		\end{cases}\, $, $ \begin{cases}
+		f_x(x_0, y_0)\Delta x + f_y(x_0, y_0)\Delta y = -f(x_0, y_0) \\
+		g_x(x_0, y_0)\Delta x + g_y(x_0, y_0)\Delta y = -g(x_0, y_0)
+		\end{cases}\, $
+	\end{enumerate}
+\end{mdframed}
+
+\subsubsection*{Relative extrema}
+
+\begin{mdframed}[style=theorem]
+	\begin{enumerate}
+		\item Solve $\begin{cases}f_x(x_0, y_0) = 0 \\ f_y(x_0, y_0) = 0\end{cases}$
+		\item Let $A = f_{xx}, B = f_{xy}, C = f_{yy}, H = AC - B^2$ (draw a table!)
+		\vspace{-0.5cm}
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item $H > 0, A > 0$: Relative minima
+				\item $H > 0, A < 0$: Relative maxima
+				\item $H < 0$: Saddle point
+				\item $H = 0$: Inconclusive
+			\end{itemize}
+		\end{multicols}
+		\vspace{-0.5cm}
+		\item \textbf{Find extrema on the "boundary"}: x-axis, y-axis, $(0, 0)$, $(\infty, \infty)$
+	\end{enumerate}
+	\textbf{Beware of missing roots!} e.g. $\div 0$, $\pm$
+	\begin{itemize}
+		\item When dividing by a variable, split into two cases: $\begin{cases}\text{Case 1: } &\text{Normal}\\ \text{Case 2: } &\div 0\end{cases}$
+	\end{itemize}
+\end{mdframed}
+
+\vfill\null
+\columnbreak
+
+\subsubsection*{Lagrange multiplier (Optimization with constraints)}
+Optimize $f(x, y, z)$ with constraints $g(x, y, z)=0$ and $h(x, y, z)=0$. For optimization within a region, find all relative extrema in range, then use Lagrange on the boundary.
+
+\begin{mdframed}[style=theorem]
+	\begin{enumerate}
+		\item Solve $\begin{cases}
+		f_x &= \lambda g_x + \mu h_x \\ 
+		f_y &= \lambda g_y + \mu h_y \\ 
+		f_z &= \lambda g_z + \mu h_z \\ 
+		g &= 0\\
+		h &= 0
+		\end{cases}$
+		\begin{itemize}
+			\item Use two equations at a time!
+			\item Divide by variable! (consider $= 0$ and $\neq 0$)
+		\end{itemize}
+		\item Determine minimum/maximum for each root
+		\item Determine if global minimum/maximum exits
+		\begin{itemize}
+			\item Think: Can you make the function infinitely small/large?
+			\item E.g. Let $x=a, \displaystyle\lim_{a \to \infty}$
+		\end{itemize}
+	\end{enumerate}
+	Tip: For optimization of distance, optimize without $\sqrt{...}$ first, add it back at the end.
+\end{mdframed}
+
+\subsection{Multiple Integrals (MATH2014)}
+
+\subsubsection*{Volume of a region}
+For area, treat $f(x, y) \equiv 1$
+
+\begin{mdframed}[style=theorem]
+	$$\underbracket{\int^{ub_x}_{lb_x} \underbracket{\int^{ub_y}_{lb_y} f(x, y) \; dy}_{} \; dx}_{\text{Order can be changed for more convenient calculation}}$$
+	
+	\begin{enumerate}
+		\item Draw boundary
+		\item Choose which way to integrate (order of $x$/$y$) (for $y \rightarrow x$, write $dy \; dx$)
+		\item $y$ bounds (in terms of $x$): Shoot an arrow $\parallel y$ to the graph, write intersects
+		\item $x$ bounds (constant): Move arrow from left to right, just covering whole graph
+		\begin{itemize}
+			\item Remember the sorting sound effect?
+		\end{itemize}
+	\end{enumerate}
+	Integrating process: Like partial differentiation, treat irrelevant variables as const.
+\end{mdframed}
+
+\vfill\null
+\columnbreak
+
+\subsubsection*{Misc. tricks in multiple integration}
+
+\begin{mdframed}[style=theorem]
+	\begin{enumerate}[label=(\Alph*)]
+		\item Separable function
+		\item Odd/even function, period
+	\end{enumerate}
+\end{mdframed}
+
+\subsubsection*{Change of variables}
+
+\begin{mdframed}[style=theorem]
+\end{mdframed}
+
+\subsubsection*{Polar coordinates}
+
+\begin{mdframed}[style=theorem]
+\end{mdframed}
+
+\subsubsection*{Common polar graphs}
+
+\begin{mdframed}[style=theorem]
+\end{mdframed}
+
