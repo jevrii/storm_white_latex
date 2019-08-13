@@ -27,6 +27,13 @@
 \usepackage{titlesec}
 \usepackage{mathtools,textcomp}
 
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
+
 \pagestyle{fancy}
 \lhead{\textit{DA/ST/CS/EC Statistics and Mathematics Notebook: An OIer's perspective}}
 \rhead{\thepage}
@@ -60,4 +67,7 @@
 
 \mdfdefinestyle{theorem}{leftline=true, rightline=true, linewidth=0.5pt, innertopmargin=0.2cm, innerbottommargin=0.2cm, skipabove=0.1cm, nobreak=true}
 
-\titlespacing*{\subsubsection}{0pt}{1ex}{1.25ex}
+\titlespacing{\section}{0pt}{0ex}{0ex}
+\titlespacing*{\subsection}{0pt}{0ex}{0ex}
+\titlespacing*{\subsubsection}{0pt}{0ex}{0ex}
+
